@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<title>For Eva from Mak 🔥</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Caveat:wght@500;600&amp;family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=Special+Elite&amp;display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;background:#000;font-family:'DM Sans',system-ui,sans-serif;}
+  *{box-sizing:border-box;}
+  a{color:#111;text-decoration:underline;}
+  a:hover{color:#c0392b;}
+  @keyframes poopfall{0%{transform:translate(-50%,-6px) scale(.35) rotate(0deg);opacity:0}12%{opacity:1}70%{opacity:1}100%{transform:translate(-50%,150px) scale(1) rotate(20deg);opacity:0}}
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-20px) rotate(3deg)}}
+  @keyframes floaty2{0%,100%{transform:translateY(0) rotate(3deg)}50%{transform:translateY(22px) rotate(-3deg)}}
+  @keyframes drift{0%,100%{transform:translateX(0) rotate(-4deg)}50%{transform:translateX(22px) rotate(4deg)}}
+  @keyframes wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes scout{0%{left:6%;top:72%}20%{left:74%;top:18%}40%{left:58%;top:78%}60%{left:16%;top:26%}80%{left:80%;top:60%}100%{left:6%;top:72%}}
+  @keyframes scout2{0%{left:82%;top:14%}20%{left:12%;top:52%}40%{left:66%;top:84%}60%{left:30%;top:12%}80%{left:88%;top:44%}100%{left:82%;top:14%}}
+  @keyframes scout3{0%{left:44%;top:88%}20%{left:88%;top:34%}40%{left:20%;top:80%}60%{left:70%;top:8%}80%{left:8%;top:38%}100%{left:44%;top:88%}}
+  @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+  @keyframes spinlogo{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+  @keyframes goldglow{0%,100%{filter:sepia(1) saturate(5) hue-rotate(-12deg) brightness(1.25) drop-shadow(0 0 6px rgba(255,212,0,.8)) drop-shadow(0 0 14px rgba(255,170,0,.5));transform:scale(1) rotate(-6deg)}50%{filter:sepia(1) saturate(6) hue-rotate(-12deg) brightness(1.5) drop-shadow(0 0 16px rgba(255,212,0,1)) drop-shadow(0 0 34px rgba(255,170,0,.75));transform:scale(1.15) rotate(6deg)}}
+  @keyframes fadein{0%{opacity:0}100%{opacity:1}}
+  @keyframes letterin{0%{transform:translateY(40px) scale(.92) rotate(-1.5deg);opacity:0}100%{transform:translateY(0) scale(1) rotate(0);opacity:1}}
+  @keyframes paraup{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+  @keyframes sealshake{0%,100%{transform:rotate(0)}15%{transform:rotate(-7deg)}30%{transform:rotate(7deg)}45%{transform:rotate(-5deg)}60%{transform:rotate(5deg)}75%{transform:rotate(-3deg)}}
+  @keyframes sealbreakL{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(-46px,54px) rotate(-70deg);opacity:0}}
+  @keyframes sealbreakR{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(46px,60px) rotate(80deg);opacity:0}}
+  @keyframes flapopen{0%{transform:rotateX(0)}100%{transform:rotateX(178deg)}}
+  @keyframes stagefade{0%{opacity:1}100%{opacity:0}}
+  @keyframes poopfetti{0%{transform:translateY(-12vh) rotate(0);opacity:1}100%{transform:translateY(108vh) rotate(560deg);opacity:0}}
+  @keyframes wisp{0%{transform:translateX(-30%) scaleX(.8);opacity:0}25%{opacity:.75}100%{transform:translateX(130%) scaleX(1.3);opacity:0}}
+  .patronus{cursor:help;transition:color .3s,text-shadow .3s;}
+  .patronus:hover{color:#6c7a89;text-shadow:0 0 10px rgba(190,215,255,.95),0 0 26px rgba(160,200,255,.75);}
+</style>
+</helmet>
+
+<sc-if value="{{ notBooted }}" hint-placeholder-val="{{ true }}">
+<div style="position:fixed;inset:0;background:#050505;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f2f2f2;">
+  <div style="font-size:76px;line-height:1;margin-bottom:40px;filter:grayscale(.2);animation:floaty 3s ease-in-out infinite;">🐶</div>
+  <div style="width:280px;height:8px;background:#2a2a2a;border-radius:20px;overflow:hidden;">
+    <div style="{{ fillStyle }}" data-fill="1"></div>
+  </div>
+  <div style="margin-top:16px;font-size:13px;letter-spacing:.5px;color:#8a8a8a;">{{ bootText }}</div>
+
+  <sc-if value="{{ frozen }}" hint-placeholder-val="{{ false }}">
+  <div style="margin-top:44px;text-align:center;max-width:440px;padding:0 20px;animation:pop .4s ease;">
+    <div style="font-family:'Archivo Black',sans-serif;font-size:22px;color:#fff;">This Mac ran into a problem 🫠</div>
+    <div style="margin-top:10px;font-size:15px;color:#9a9a9a;line-height:1.5;">Stuck at 33%. Yeah, not the first time this has happened. 👀<br>(pour one out for Eva's laptop)</div>
+  </div>
+  <button onClick="{{ onOpen }}" style="{{ btnStyle }}" data-btn="1">{{ btnLabel }}</button>
+  <div style="position:fixed;bottom:10px;left:12px;font-size:10px;color:#1c1c1c;user-select:none;">hold&nbsp;⇧</div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ booted }}" hint-placeholder-val="{{ false }}">
+<div style="{{ bgStyle }}">
+
+  <!-- floating decor gifs -->
+  <img src="img/jude.gif" style="position:absolute;top:5%;left:3.5%;width:240px;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.18);animation:floaty 5s ease-in-out infinite;">
+  <div style="position:absolute;top:calc(5% + 240px);left:3.5%;width:300px;font-size:12px;font-weight:700;background:#111;color:#FFD400;padding:5px 8px;border-radius:8px;transform:rotate(-3deg);">🚨 hottie alert 🚨 —you, allegedly</div>
+
+  <img src="img/england-shocked.gif" style="position:absolute;top:5%;right:3.5%;width:240px;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.18);animation:floaty2 6s ease-in-out infinite;">
+  <div style="position:absolute;top:calc(5% + 200px);right:3.5%;width:160px;font-size:12px;font-weight:700;background:#111;color:#fff;padding:5px 8px;border-radius:8px;transform:rotate(3deg);text-align:right;">England lost 😭 but Spain is a better team anyway ⚽</div>
+
+  <img src="img/sugar-daddy.gif" style="position:absolute;bottom:9%;left:3.5%;width:118px;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.18);animation:floaty 5.5s ease-in-out infinite;">
+  <div style="position:absolute;bottom:calc(9% + 172px);left:3.5%;width:300px;font-size:12px;font-weight:700;background:#c0392b;color:#fff;padding:5px 8px;border-radius:8px;transform:rotate(-4deg);">your type, apparently 💰👴 糖爸</div>
+
+  <img src="img/soccer.gif" style="position:absolute;bottom:9%;right:3.5%;width:240px;border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.18);animation:floaty2 5s ease-in-out infinite;">
+
+  <img src="img/dance-cat.gif" style="position:absolute;top:46%;left:2%;width:184px;border-radius:12px;border:3px solid #111;animation:drift 4.5s ease-in-out infinite;">
+  <img src="img/dance-beagle.gif" style="position:absolute;top:43%;right:2%;width:200px;animation:drift 5.2s ease-in-out infinite;">
+  <img src="img/fat-guy.gif" style="position:absolute;top:1.5%;left:19%;width:168px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.2);animation:wiggle 3.5s ease-in-out infinite;">
+  <img src="img/seesaw.gif" style="position:absolute;top:1.5%;right:19%;width:264px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.2);animation:wiggle 4s ease-in-out infinite;">
+
+  <!-- roaming clickable pooper -->
+  <img src="img/pooper-scout.gif" onClick="{{ onScout }}" title="is that... a pooper?" style="position:absolute;width:120px;cursor:pointer;z-index:40;border-radius:12px;border:3px solid #111;box-shadow:0 6px 14px rgba(0,0,0,.3);animation:scout 14s linear infinite;">
+
+  <!-- roaming sushi -->
+  <img src="img/sushi-eat-sushi.gif" title="sushi run 🍣" style="position:absolute;width:120px;z-index:40;border-radius:12px;border:3px solid #111;box-shadow:0 6px 14px rgba(0,0,0,.3);animation:scout2 17s linear infinite;">
+
+  <!-- roaming dancing cat -->
+  <img src="img/dancing-sphynx-cat-sphynx-cat.gif" title="dancing cat 🕺" style="position:absolute;width:120px;z-index:40;border-radius:12px;border:3px solid #111;box-shadow:0 6px 14px rgba(0,0,0,.3);animation:scout3 20s linear infinite;">
+
+  <!-- center hero -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;z-index:20;">
+    <div style="font-family:'Archivo Black',sans-serif;font-size:14px;letter-spacing:2px;color:#111;background:#fff;border:3px solid #111;padding:6px 14px;border-radius:30px;animation:blink 1.4s steps(1) infinite;">{{ bannerText }}</div>
+    <div style="margin-top:7px;font-size:11px;font-weight:400;letter-spacing:.2px;color:rgba(17,17,17,.5);">I hope this dumdum webpage reminds you of NYC and home in some way :)</div>
+
+    <div onClick="{{ onDog }}" title="poke him" style="position:relative;margin-top:14px;cursor:pointer;">
+      <img src="img/dog-yellow.gif" style="width:400px;display:block;border-radius:18px;">
+      <span style="{{ poop1 }}">💩</span>
+      <span style="{{ poop2 }}">💩</span>
+      <span style="{{ poop3 }}">💩</span>
+    </div>
+
+    <div style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:.95;color:#111;margin-top:6px;text-shadow:3px 3px 0 #fff;">{{ heroTitle }}</div>
+    <div style="font-size:17px;font-weight:700;color:#111;margin-top:8px;">{{ heroSubtitle }}</div>
+    <div style="margin-top:12px;font-size:15px;font-weight:700;color:#FFD400;background:#111;padding:8px 16px;border-radius:30px;">💩 poops witnessed: {{ poopCount }}</div>
+  </div>
+
+  <!-- toast -->
+  <sc-if value="{{ showToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:#111;color:#fff;font-weight:700;padding:12px 20px;border-radius:14px;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:pop .3s ease;max-width:80vw;text-align:center;">{{ toast }}</div>
+  </sc-if>
+
+  <!-- 🥚 easter egg: the legendary golden poop -->
+  <sc-if value="{{ golden }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ onGolden }}" title="...that one looks different" style="{{ goldenStyle }}">💩</div>
+  </sc-if>
+
+  <!-- 🥚 easter egg: quiet re-open tab once it's been found -->
+  <sc-if value="{{ showEnvelope }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ onReopen }}" title="read it again" style="position:fixed;left:14px;bottom:50px;z-index:55;cursor:pointer;font-size:22px;opacity:.6;animation:floaty 4s ease-in-out infinite;">💌</div>
+  </sc-if>
+
+  <!-- 🥚 easter egg: the letter -->
+  <sc-if value="{{ letterOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:200;background:rgba(10,8,2,.62);backdrop-filter:blur(7px) saturate(.75);-webkit-backdrop-filter:blur(7px) saturate(.75);display:flex;align-items:center;justify-content:center;padding:24px;animation:fadein .35s ease;">
+
+      <!-- envelope + wax seal: cracks open, then the letter rises out -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:stagefade .55s ease 1.45s both;">
+        <div style="position:relative;width:320px;height:212px;perspective:900px;">
+          <div style="position:absolute;inset:0;background:linear-gradient(#efe3c8,#e3d4b4);border-radius:10px;box-shadow:0 22px 50px rgba(0,0,0,.5);"></div>
+          <div style="position:absolute;left:0;right:0;top:0;height:0;border-left:160px solid transparent;border-right:160px solid transparent;border-top:112px solid #e7d9ba;transform-origin:top center;animation:flapopen .55s ease .85s both;"></div>
+          <div style="position:absolute;left:50%;top:88px;width:56px;height:56px;margin-left:-28px;">
+            <div style="position:absolute;inset:0;animation:sealshake .6s ease both;">
+              <div style="position:absolute;left:0;top:0;width:28px;height:56px;overflow:hidden;animation:sealbreakL .5s ease .62s both;"><div style="width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d94f3d,#8e2318);box-shadow:0 4px 10px rgba(0,0,0,.35);"></div></div>
+              <div style="position:absolute;right:0;top:0;width:28px;height:56px;overflow:hidden;animation:sealbreakR .5s ease .62s both;"><div style="width:56px;height:56px;margin-left:-28px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d94f3d,#8e2318);box-shadow:0 4px 10px rgba(0,0,0,.35);"></div></div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-size:30px;color:rgba(255,235,220,.92);animation:sealbreakR .5s ease .62s both;">E</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- poop-fetti -->
+      <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+        <span style="position:absolute;left:3%;top:0;font-size:22px;animation:poopfetti 2.60s linear 1.05s both;">💩</span>
+        <span style="position:absolute;left:9%;top:0;font-size:16px;animation:poopfetti 2.95s linear 1.23s both;">💩</span>
+        <span style="position:absolute;left:15%;top:0;font-size:28px;animation:poopfetti 3.30s linear 1.40s both;">💩</span>
+        <span style="position:absolute;left:21%;top:0;font-size:18px;animation:poopfetti 3.65s linear 1.10s both;">💩</span>
+        <span style="position:absolute;left:27%;top:0;font-size:24px;animation:poopfetti 4.00s linear 1.47s both;">💩</span>
+        <span style="position:absolute;left:33%;top:0;font-size:14px;animation:poopfetti 2.60s linear 1.27s both;">💩</span>
+        <span style="position:absolute;left:39%;top:0;font-size:26px;animation:poopfetti 2.95s linear 1.65s both;">💩</span>
+        <span style="position:absolute;left:46%;top:0;font-size:20px;animation:poopfetti 3.30s linear 1.17s both;">💩</span>
+        <span style="position:absolute;left:52%;top:0;font-size:17px;animation:poopfetti 3.65s linear 1.55s both;">💩</span>
+        <span style="position:absolute;left:58%;top:0;font-size:29px;animation:poopfetti 4.00s linear 1.35s both;">💩</span>
+        <span style="position:absolute;left:64%;top:0;font-size:15px;animation:poopfetti 2.60s linear 1.71s both;">💩</span>
+        <span style="position:absolute;left:70%;top:0;font-size:23px;animation:poopfetti 2.95s linear 1.13s both;">💩</span>
+        <span style="position:absolute;left:76%;top:0;font-size:19px;animation:poopfetti 3.30s linear 1.33s both;">💩</span>
+        <span style="position:absolute;left:82%;top:0;font-size:27px;animation:poopfetti 3.65s linear 1.60s both;">💩</span>
+        <span style="position:absolute;left:88%;top:0;font-size:21px;animation:poopfetti 4.00s linear 1.45s both;">💩</span>
+        <span style="position:absolute;left:94%;top:0;font-size:16px;animation:poopfetti 2.60s linear 1.77s both;">💩</span>
+        <span style="position:absolute;left:12%;top:0;font-size:25px;animation:poopfetti 2.95s linear 1.67s both;">💩</span>
+        <span style="position:absolute;left:44%;top:0;font-size:18px;animation:poopfetti 3.30s linear 1.20s both;">💩</span>
+        <span style="position:absolute;left:68%;top:0;font-size:22px;animation:poopfetti 3.65s linear 1.51s both;">💩</span>
+        <span style="position:absolute;left:90%;top:0;font-size:14px;animation:poopfetti 4.00s linear 1.30s both;">💩</span>
+      </div>
+
+      <!-- the letter -->
+      <div style="position:relative;width:{{ cardWidth }};max-height:84vh;background:linear-gradient(#fffdf5,#fdf6e3);border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.4) inset,0 0 40px rgba(120,90,40,.09) inset;overflow:hidden;opacity:0;animation:letterin .6s cubic-bezier(.2,.9,.3,1.15) 1.15s both;">
+
+        <!-- paper texture + fold creases -->
+        <div style="position:absolute;inset:0;pointer-events:none;opacity:.5;background:repeating-linear-gradient(38deg,rgba(120,95,50,.028) 0 2px,rgba(0,0,0,0) 2px 5px);"></div>
+        <div style="position:absolute;left:0;right:0;top:33%;height:14px;pointer-events:none;background:linear-gradient(rgba(0,0,0,0),rgba(90,70,35,.055),rgba(255,255,255,.32),rgba(0,0,0,0));"></div>
+        <div style="position:absolute;left:0;right:0;top:66%;height:14px;pointer-events:none;background:linear-gradient(rgba(0,0,0,0),rgba(90,70,35,.05),rgba(255,255,255,.3),rgba(0,0,0,0));"></div>
+
+        <div onClick="{{ onCloseLetter }}" title="close" style="position:absolute;top:12px;right:16px;font-size:20px;line-height:1;color:rgba(17,17,17,.35);cursor:pointer;user-select:none;z-index:5;">✕</div>
+
+        <div style="position:relative;max-height:84vh;overflow:auto;padding:42px 46px 40px;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-right:26px;">
+            <div>
+              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(17,17,17,.4);">you found it ✨</div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:26px;color:#111;margin-top:8px;">A letter for Eva</div>
+            </div>
+            <div onClick="{{ onCommentary }}" title="DVD extras, basically" style="{{ commentaryBtnStyle }}">{{ commentaryLabel }}</div>
+          </div>
+
+          <div style="margin-top:18px;font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15.5px;line-height:1.8;color:#1b1b1b;text-align:left;">
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.15s both;">Dear Sir. Eva,</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.21s both;">If you’re reading this, I’m dead. I’ve been abduct and these guys mean biznesses. Nah jk, always wanted to start a letter this way.</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> Being abducted is genuinely a life goal of mine. What a way to go 🔥</div>
+          <div style="{{ gifRightStyle }}"><img src="img/taken-liam-neeson.gif" alt="taken-liam-neeson.gif" style="width:100%;display:block;border-radius:3px;min-height:96px;background:repeating-linear-gradient(45deg,#efe7d4,#efe7d4 8px,#e6dcc4 8px,#e6dcc4 16px);font-size:9px;color:#8a7f66;"><div style="font-family:'Special Elite',monospace;font-size:9.5px;letter-spacing:.3px;color:rgba(17,17,17,.5);margin-top:5px;text-align:center;">fig. 1 — Taken (2008)</div></div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.27s both;">Read this in Liam Neeson’s voice: if any other living soul reads this letter aside from you, I will look for you, and I will find you. 🫵</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> We wanted the real Liam Neeson. Budget was zero dollars and one candy wrapper.</div>
+          <div style="clear:both;"></div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.33s both;">A whole three-ring circus was going off the rails in my life, and I wanted to challenge myself this summer, and put myself out there and meet new people. I was pretty sure I was gonna be kidnapped and held for ransom, but I’m very glad that I bumped into you. You’ve helped me in more ways than you know, and I’ll always be grateful to you for that.</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.39s both;">You’re one of the best things that happened to me this summer. Except the time I found a quarter in my jacket when doing laundry. Turns out it was a candy wrap. But you’re a solid close second, no cap.</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> The quarter remains at large. Investigation ongoing. The candy wrapper has been questioned and released.</div>
+          <div style="{{ gifLeftStyle }}"><img src="img/uncle-ben-spiderman.gif" alt="uncle-ben-spiderman.gif" style="width:100%;display:block;border-radius:3px;min-height:96px;background:repeating-linear-gradient(45deg,#efe7d4,#efe7d4 8px,#e6dcc4 8px,#e6dcc4 16px);font-size:9px;color:#8a7f66;"><div style="font-family:'Special Elite',monospace;font-size:9.5px;letter-spacing:.3px;color:rgba(17,17,17,.5);margin-top:5px;text-align:center;">fig. 2 — with great power</div></div>
+          <div style="{{ gifRightStyle }}"><img src="img/sokka-cactus-juice.gif" alt="sokka-cactus-juice.gif" style="width:100%;display:block;border-radius:3px;min-height:96px;background:repeating-linear-gradient(45deg,#efe7d4,#efe7d4 8px,#e6dcc4 8px,#e6dcc4 16px);font-size:9px;color:#8a7f66;"><div style="font-family:'Special Elite',monospace;font-size:9.5px;letter-spacing:.3px;color:rgba(17,17,17,.5);margin-top:5px;text-align:center;">fig. 3 — “it’s the quenchiest!”</div></div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.45s both;">There are a few canon moments in people’s life, like uncle Ben dying in Spider-Man or Sokka getting high on cactus juice, and I’m pretty sure meeting you was one for me. Ik you haven’t read Harry Potter but when you do read it, you will come to learn about a spell called “<span class="patronus">Patronus</span>”. The cast requires you to remember a happy moment or a feeling.</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> Original draft used Mufasa. Test audience cried too hard, we had to pull it.</div>
+          <div style="clear:both;"></div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.51s both;">Do you know the feeling of watching the first rays of sunshine shimmer through the trees, as you sit on the morning dew-kissed grass and watch the first silver lining on the clouds appear? And you think to yourself “hey that cloud kinda looks like my chemistry teacher”. And you close your eyes, and smell the fresh morning breeze mixed with a faint scent of dog poop? You think to yourself, “hmm German Shepard?”</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> Take 47. The dog poop smell was added in post. Our foley artist has since left the industry.</div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.57s both;">Sometimes in life, some people make you feel this way. They remind you of that happy light-weight warm feeling within. And you reminded me of what it feels like.</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.63s both;">Some say beauty is in the Sydney-Sweeney-boobs, juicy butts with hourglass waist, while you may not have much of either xD, I still love you. You were chill, sweet, vibe-able wavelength, funny, and you’ve still got heart, however cold and frozen it might be. And kidneys. Which I hear are quite valuable iykwim. And I lie, you are beautiful ❤️ especially when you smile and your eyes catch the light :) And even more so on the inside.</p>
+          <div style="{{ gifLeftStyle }}"><img src="img/the-office-andy.gif" alt="the-office-andy.gif" style="width:100%;display:block;border-radius:3px;min-height:96px;background:repeating-linear-gradient(45deg,#efe7d4,#efe7d4 8px,#e6dcc4 8px,#e6dcc4 16px);font-size:9px;color:#8a7f66;"><div style="font-family:'Special Elite',monospace;font-size:9.5px;letter-spacing:.3px;color:rgba(17,17,17,.5);margin-top:5px;text-align:center;">fig. 4 — Bernard, A. (2013)</div></div>
+  <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.69s both;">Andy Bernard once said, <span style="font-style:italic;">“I wish there was a way to know we’re in the good old times before we’ve actually left them”</span>. The time we had was shorter than I had imagined or hoped for. Every moment hanging out with you, minus the horror show Obsession movie which ptsd-ed the shit out of me, felt like the good old times.</p>
+          <div style="{{ noteStyle }}"><span style="opacity:.75;">🎬</span> The Office is streaming somewhere. Not a sponsor. Yet. Our people have called their people.</div>
+          <div style="clear:both;"></div>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.75s both;">I’m really sorry that I got you sick, I shouldn’t have asked to meet you, and definitely should not have taken my mask off. I just missed you and wanted to spend time with you. I know you must have had plans of your own, it wasn’t cool that I was selfish to want you to spend some of them with me.</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.81s both;">I don’t know if this was the reason you were pulling away or if it was something else that I had done, whatever it was, I’m sorry. Truly… I wanted to do my best to reach out to you and try to fix things without overstepping anything. I’m sorry if I made you uncomfortable or weird in any way. Unfortunately you’re important to me to say screw this and forget about you. I really missed you. You were one of the things I’d look forward to over the week. Going out with you, picking up random hobbies and losing to old uncs at pickleball, walking around in the park, the city, in the rain, watching the sunset, getting ptsd from a horror movie, eating uncooked fish on rice, bringing you food and make you smile… they meant something to me.</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.87s both;">I’m going to miss you. I’m not sure if you’re coming back for the winter break, but if you do, I hope we get to go out. We still have our butter chicken and dumplings deal to fulfil; we shook on it, so we’re bound by the sacred laws of pinky swear. Plus you never taught me your Chinese name.</p>
+          <p style="margin:0 0 17px;opacity:0;animation:paraup .55s ease 1.93s both;">Before you left for college, I wanted to see you once. There were things I wanted to say, and I got you something I thought you’d like, but the only thing I can do now is share this letter and this funky ass website which I hope makes you smile :) Cuz you look <s style="text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(192,57,43,.8);">aitt</s> cute when you do xD</p>
+          <p style="margin:26px 0 2px;font-family:'Caveat',cursive;font-size:34px;line-height:1;color:#1b1b1b;opacity:0;animation:paraup .55s ease 2.05s both;">With love,</p>
+          <p style="margin:6px 0 0;font-family:'Special Elite','Courier New',monospace;font-size:19px;letter-spacing:.4px;color:#111;opacity:0;animation:paraup .55s ease 2.15s both;">William M. Buttlicker, the peasant</p>
+          <p style="margin:14px 0 0;font-style:italic;font-size:14.5px;letter-spacing:.4px;color:rgba(17,17,17,.6);opacity:0;animation:paraup .55s ease 2.3s both;">We built this country btw</p>
+          <div style="{{ footnoteStyle }}">* “Buttlicker, our prices have never been lower.”</div>
+          </div>
+          <div style="clear:both;"></div>
+          <div style="margin-top:26px;font-size:13px;color:rgba(17,17,17,.45);">(psst — the 💌 in the corner brings this back anytime)</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- bottom marquee -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:38px;background:#111;color:#FFD400;overflow:hidden;display:flex;align-items:center;font-weight:700;font-size:14px;z-index:50;">
+    <div style="white-space:nowrap;animation:marquee 26s linear infinite;">{{ ticker }}{{ ticker }}</div>
+  </div>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;DEDICATED TO EVA! 🔥&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Copy&quot;},&quot;heroSubtitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Enjoy the show while you eat 🍿 (he's doin a fibre-rich performance just for you)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Copy&quot;},&quot;bannerText&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;🌳 CENTRAL PARK DOG POOP-CAM&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Copy&quot;},&quot;bgColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f1cf03&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;},&quot;poopRainSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.3,&quot;min&quot;:0.5,&quot;max&quot;:3,&quot;step&quot;:0.1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+class Component extends DCLogic {
+  state = { progress: 0, frozen: false, booted: false, shiftHeld: false,
+            btnLeft: 0, btnTop: 0, poopCount: 0, toast: '', placed: false,
+            golden: false, goldSpot: 0, letterFound: false, letterOpen: false,
+            commentary: false };
+
+  componentDidMount() {
+    const w = window.innerWidth, h = window.innerHeight;
+    this.setState({ btnLeft: w / 2 - 100, btnTop: h * 0.66, placed: true });
+
+    this._p = setInterval(() => {
+      this.setState(s => {
+        const np = Math.min(33, s.progress + 1);
+        if (np >= 33 && !s._done) {
+          clearInterval(this._p);
+          setTimeout(() => this.setState({ frozen: true }), 500);
+          return { progress: np, _done: true };
+        }
+        return { progress: np };
+      });
+    }, 70);
+
+    this._mm = (e) => {
+      const s = this.state;
+      if (!s.frozen || s.booted || s.shiftHeld) return;
+      const bw = 200, bh = 60;
+      const cx = s.btnLeft + bw / 2, cy = s.btnTop + bh / 2;
+      let dx = cx - e.clientX, dy = cy - e.clientY;
+      let dist = Math.hypot(dx, dy);
+      const TH = 175;
+      if (dist < TH) {
+        if (dist < 1) { dx = Math.random() - .5; dy = Math.random() - .5; dist = 1; }
+        let nx = e.clientX + (dx / dist) * TH - bw / 2;
+        let ny = e.clientY + (dy / dist) * TH - bh / 2;
+        nx = Math.max(20, Math.min(window.innerWidth - bw - 20, nx));
+        ny = Math.max(120, Math.min(window.innerHeight - bh - 24, ny));
+        this.setState({ btnLeft: nx, btnTop: ny });
+      }
+    };
+    this._kd = (e) => { if (e.key === 'Shift') this.setState({ shiftHeld: true }); };
+    this._ku = (e) => { if (e.key === 'Shift') this.setState({ shiftHeld: false }); };
+    window.addEventListener('mousemove', this._mm);
+    window.addEventListener('keydown', this._kd);
+    window.addEventListener('keyup', this._ku);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._p); clearInterval(this._poop);
+    window.removeEventListener('mousemove', this._mm);
+    window.removeEventListener('keydown', this._kd);
+    window.removeEventListener('keyup', this._ku);
+  }
+
+  flash(msg) {
+    this.setState({ toast: msg });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ toast: '' }), 2600);
+  }
+
+  onOpen = (e) => {
+    if (this.state.shiftHeld || (e && e.shiftKey)) {
+      this.setState({ booted: true });
+      this._poop = setInterval(() => this.bumpPoops(1), 1300);
+    } else {
+      const msgs = [
+        "🙅 Nope. The website's broken, Eva.",
+        "weird, it works fine for me 🤷",
+        "have you tried... being Rishab?",
+        "33%. classic. just like the Mac 💀"
+      ];
+      this.flash(msgs[Math.floor(Math.random() * msgs.length)]);
+      const w = window.innerWidth, h = window.innerHeight;
+      this.setState({ btnLeft: Math.random() * (w - 260) + 20, btnTop: Math.random() * (h - 220) + 130 });
+    }
+  };
+
+  onDog = () => { this.bumpPoops(1); this.flash("💩 +1. He's at it again."); };
+  onScout = () => { this.bumpPoops(5); this.flash("🎯 Shake it! 🪇"); };
+
+  // 🥚 easter egg: after enough poops, one rare GOLDEN poop shows up somewhere
+  // on screen and waits to be clicked. Findable, but you have to be looking.
+  bumpPoops = (n) => {
+    this.setState(s => {
+      const c = s.poopCount + n;
+      if (!s.golden && !s.letterFound && c >= 14) {
+        setTimeout(() => this.flash("✨ ok hold on. one of those did NOT look normal."), 400);
+        return { poopCount: c, golden: true, goldSpot: Math.floor(Math.random() * 4) };
+      }
+      return { poopCount: c };
+    });
+  };
+
+  onGolden = () => {
+    this.setState({ golden: false, letterFound: true, letterOpen: true });
+    this.flash("🏆 legendary poop acquired");
+  };
+  onReopen = () => this.setState({ letterOpen: true });
+  onCommentary = () => this.setState(s => ({ commentary: !s.commentary }));
+  onCloseLetter = () => this.setState({ letterOpen: false });
+
+  renderVals() {
+    const s = this.state;
+    const p = this.props;
+    const dur = Number(p.poopRainSpeed ?? 1.3);
+    const pbase = { position: 'absolute', left: '63%', top: '72%' };
+    const btnStyle = {
+      position: 'fixed', left: s.btnLeft + 'px', top: s.btnTop + 'px',
+      padding: '18px 30px', border: 'none', borderRadius: '12px',
+      fontFamily: "'Archivo Black', sans-serif", fontSize: '16px',
+      color: '#fff', transition: 'background .15s, box-shadow .15s',
+      background: s.shiftHeld ? '#00c853' : '#e53935',
+      cursor: s.shiftHeld ? 'pointer' : 'not-allowed',
+      boxShadow: s.shiftHeld
+        ? '0 0 0 5px rgba(0,200,83,.25), 0 14px 34px rgba(0,200,83,.5)'
+        : '0 10px 26px rgba(0,0,0,.5)',
+      zIndex: 30
+    };
+    return {
+      notBooted: !s.booted,
+      booted: s.booted,
+      bgStyle: { position: 'fixed', inset: 0, overflow: 'hidden', fontFamily: "'DM Sans',sans-serif", background: p.bgColor ?? '#FFD400' },
+      bannerText: p.bannerText ?? '🌳 CENTRAL PARK DOG POOP-CAM',
+      heroTitle: p.heroTitle ?? 'DEDICATED TO EVA 🩷',
+      heroSubtitle: p.heroSubtitle ?? "Enjoy the show while you eat 🍿 (he's performing just for you)",
+      poop1: { ...pbase, fontSize: '38px', animation: `poopfall ${dur}s ease-in infinite` },
+      poop2: { ...pbase, fontSize: '32px', animation: `poopfall ${dur}s ease-in ${(dur * 0.35).toFixed(2)}s infinite` },
+      poop3: { ...pbase, fontSize: '44px', animation: `poopfall ${dur}s ease-in ${(dur * 0.7).toFixed(2)}s infinite` },
+      frozen: s.frozen,
+      fillStyle: { width: s.progress + '%', height: '100%', background: '#f2f2f2', borderRadius: '20px', transition: 'width .1s linear' },
+      bootText: s.frozen ? 'stopped responding.' : 'starting up… (' + s.progress + '%)',
+      btnStyle,
+      btnLabel: s.shiftHeld ? 'Open Anyway ✅' : 'Open Anyway',
+      poopCount: s.poopCount,
+      showToast: !!s.toast,
+      toast: s.toast,
+      onOpen: this.onOpen,
+      onDog: this.onDog,
+      onScout: this.onScout,
+      golden: s.golden,
+      goldenStyle: {
+        position: 'fixed',
+        left: ['12%', '82%', '24%', '76%'][s.goldSpot] ,
+        top: ['30%', '66%', '72%', '24%'][s.goldSpot],
+        fontSize: '42px', cursor: 'pointer', zIndex: 70, userSelect: 'none',
+        animation: 'goldglow 1.6s ease-in-out infinite'
+      },
+      showEnvelope: s.letterFound && !s.letterOpen,
+      letterOpen: s.letterOpen,
+      onGolden: this.onGolden,
+      onCommentary: this.onCommentary,
+      cardWidth: s.commentary ? 'min(760px,94vw)' : 'min(620px,92vw)',
+      commentaryLabel: s.commentary ? '🎬 Director\u2019s Commentary: ON' : '🎬 Director\u2019s Commentary: OFF',
+      commentaryBtnStyle: {
+        flex: '0 0 auto', marginTop: '4px', padding: '7px 13px', borderRadius: '20px',
+        border: '2px solid #111', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap',
+        fontSize: '11.5px', fontWeight: 700, letterSpacing: '.2px',
+        background: s.commentary ? '#111' : 'rgba(255,255,255,.5)',
+        color: s.commentary ? '#FFD400' : '#111',
+        transition: 'background .2s, color .2s'
+      },
+      noteStyle: {
+        display: s.commentary ? 'block' : 'none',
+        margin: '-6px 0 18px', padding: '9px 13px', borderRadius: '8px',
+        borderLeft: '3px solid #FFD400', background: 'rgba(17,17,17,.045)',
+        fontSize: '12.5px', lineHeight: 1.6, color: 'rgba(17,17,17,.62)'
+      },
+      footnoteStyle: {
+        display: s.commentary ? 'block' : 'none',
+        margin: '22px 0 0', padding: '9px 13px', borderRadius: '8px',
+        borderLeft: '3px solid #FFD400', background: 'rgba(17,17,17,.045)',
+        fontSize: '11px', lineHeight: 1.6, color: 'rgba(17,17,17,.55)'
+      },
+      gifRightStyle: {
+        display: s.commentary ? 'block' : 'none',
+        float: 'right', width: '152px', margin: '2px 0 12px 20px',
+        padding: '7px 7px 4px', background: '#fff', borderRadius: '4px',
+        border: '1px solid rgba(0,0,0,.12)', boxShadow: '0 6px 16px rgba(0,0,0,.16)',
+        transform: 'rotate(2deg)'
+      },
+      gifLeftStyle: {
+        display: s.commentary ? 'block' : 'none',
+        float: 'left', width: '152px', margin: '2px 20px 12px 0',
+        padding: '7px 7px 4px', background: '#fff', borderRadius: '4px',
+        border: '1px solid rgba(0,0,0,.12)', boxShadow: '0 6px 16px rgba(0,0,0,.16)',
+        transform: 'rotate(-2.5deg)'
+      },
+      onReopen: this.onReopen,
+      onCloseLetter: this.onCloseLetter,
+      ticker: "🎬 No sugar daddies, kids, or dogs were harmed in the making of this documentary  •  Sponsored by HBO (Highly Brain-rotten Originals)  •  Food and poop bring people together — it's the circle of life 🌭💩  •  Warning: contains 100% organic fibre in poops  •  This dog did his own stunts  •  Runtime: as long as your food lasts  •  Filmed on location at Central Park  •  No refunds  •  Support future productions by subscribing and buying the director pizza."
+    };
+  }
+}
+</script>
+</body>
+</html>
