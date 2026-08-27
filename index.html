@@ -58,9 +58,10 @@
   <div style="margin-top:44px;text-align:center;max-width:440px;padding:0 20px;animation:pop .4s ease;">
     <div style="font-family:'Archivo Black',sans-serif;font-size:22px;color:#fff;">This Mac ran into a problem 🫠</div>
     <div style="margin-top:10px;font-size:15px;color:#9a9a9a;line-height:1.5;">Stuck at 33%. Yeah, not the first time this has happened. 👀<br>(pour one out for Eva's internship laptop)</div>
+    <div style="{{ hintStyle }}">{{ hintText }}</div>
   </div>
   <button onClick="{{ onOpen }}" style="{{ btnStyle }}" data-btn="1">{{ btnLabel }}</button>
-  <div style="position:fixed;bottom:10px;left:12px;font-size:10px;color:#1c1c1c;user-select:none;">hold&nbsp;⇧</div>
+  <div style="{{ cornerStyle }}">hold&nbsp;⇧</div>
   </sc-if>
 </div>
 </sc-if>
@@ -239,6 +240,7 @@
 class Component extends DCLogic {
   state = { progress: 0, frozen: false, booted: false, shiftHeld: false,
             btnLeft: 0, btnTop: 0, poopCount: 0, toast: '', placed: false,
+            hintLevel: 0, fails: 0, mercy: false,
             golden: false, goldSpot: 0, letterFound: false, letterOpen: false,
             commentary: false };
 
@@ -251,7 +253,7 @@ class Component extends DCLogic {
         const np = Math.min(33, s.progress + 1);
         if (np >= 33 && !s._done) {
           clearInterval(this._p);
-          setTimeout(() => this.setState({ frozen: true }), 500);
+          setTimeout(() => { this.setState({ frozen: true }); this.startHints(); }, 500);
           return { progress: np, _done: true };
         }
         return { progress: np };
@@ -282,8 +284,21 @@ class Component extends DCLogic {
     window.addEventListener('keyup', this._ku);
   }
 
+  // she should never get properly stuck: hints escalate on a timer AND on failed
+  // clicks, and after 90s the button gives up and lets her in regardless.
+  startHints = () => {
+    this._h0 = Date.now();
+    this._h = setInterval(() => {
+      if (this.state.booted) { clearInterval(this._h); return; }
+      const t = (Date.now() - this._h0) / 1000;
+      const lvl = t > 42 ? 3 : t > 25 ? 2 : t > 12 ? 1 : 0;
+      if (lvl > this.state.hintLevel) this.setState({ hintLevel: lvl });
+      if (t > 90 && !this.state.mercy) this.setState({ mercy: true });
+    }, 1000);
+  };
+
   componentWillUnmount() {
-    clearInterval(this._p); clearInterval(this._poop);
+    clearInterval(this._p); clearInterval(this._poop); clearInterval(this._h);
     window.removeEventListener('mousemove', this._mm);
     window.removeEventListener('keydown', this._kd);
     window.removeEventListener('keyup', this._ku);
@@ -296,7 +311,7 @@ class Component extends DCLogic {
   }
 
   onOpen = (e) => {
-    if (this.state.shiftHeld || (e && e.shiftKey)) {
+    if (this.state.shiftHeld || (e && e.shiftKey) || this.state.mercy) {
       this.setState({ booted: true });
       this._poop = setInterval(() => this.bumpPoops(1), 1300);
     } else {
@@ -308,7 +323,16 @@ class Component extends DCLogic {
       ];
       this.flash(msgs[Math.floor(Math.random() * msgs.length)]);
       const w = window.innerWidth, h = window.innerHeight;
-      this.setState({ btnLeft: Math.random() * (w - 260) + 20, btnTop: Math.random() * (h - 220) + 130 });
+      this.setState(s => {
+        const f = s.fails + 1;
+        const lvl = f >= 6 ? 3 : f >= 4 ? 2 : f >= 2 ? 1 : 0;
+        return {
+          fails: f,
+          hintLevel: Math.max(s.hintLevel, lvl),
+          btnLeft: Math.random() * (w - 260) + 20,
+          btnTop: Math.random() * (h - 220) + 130
+        };
+      });
     }
   };
 
@@ -367,6 +391,25 @@ class Component extends DCLogic {
       fillStyle: { width: s.progress + '%', height: '100%', background: '#f2f2f2', borderRadius: '20px', transition: 'width .1s linear' },
       bootText: s.frozen ? 'stopped responding.' : 'starting up… (' + s.progress + '%)',
       btnStyle,
+      hintText: [
+        '',
+        '…ok it is actively dodging you now. that is rude. (not personal. mostly.)',
+        'psst — it calms down if you hold a certain key. a loud one. the one that makes LETTERS SHOUT.',
+        'fine. HOLD SHIFT, then click. that is the whole trick. go on.'
+      ][s.hintLevel],
+      hintStyle: {
+        display: s.hintLevel ? 'block' : 'none',
+        marginTop: '18px', fontSize: '13.5px', lineHeight: 1.5,
+        color: s.hintLevel >= 3 ? '#FFD400' : '#7e7e7e',
+        fontWeight: s.hintLevel >= 3 ? 700 : 400,
+        animation: 'pop .35s ease'
+      },
+      cornerStyle: {
+        position: 'fixed', bottom: '10px', left: '12px', userSelect: 'none',
+        fontSize: s.hintLevel >= 3 ? '12px' : '10px',
+        color: s.hintLevel >= 3 ? '#FFD400' : s.hintLevel >= 2 ? '#4a4a4a' : '#1c1c1c',
+        transition: 'color .6s, font-size .3s'
+      },
       btnLabel: s.shiftHeld ? 'Open Anyway ✅' : 'Open Anyway',
       poopCount: s.poopCount,
       showToast: !!s.toast,
