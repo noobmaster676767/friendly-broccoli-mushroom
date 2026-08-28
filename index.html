@@ -30,6 +30,9 @@
   @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
   @keyframes spinlogo{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
   @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+  @keyframes doraslide{0%{transform:translateX(120%) rotate(6deg);opacity:0}100%{transform:translateX(0) rotate(0);opacity:1}}
+  @keyframes arrowbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes ringpulse{0%{transform:scale(.75);opacity:.9}100%{transform:scale(1.5);opacity:0}}
   @keyframes goldglow{0%,100%{filter:sepia(1) saturate(5) hue-rotate(-12deg) brightness(1.25) drop-shadow(0 0 6px rgba(255,212,0,.8)) drop-shadow(0 0 14px rgba(255,170,0,.5));transform:scale(1) rotate(-6deg)}50%{filter:sepia(1) saturate(6) hue-rotate(-12deg) brightness(1.5) drop-shadow(0 0 16px rgba(255,212,0,1)) drop-shadow(0 0 34px rgba(255,170,0,.75));transform:scale(1.15) rotate(6deg)}}
   @keyframes fadein{0%{opacity:0}100%{opacity:1}}
   @keyframes letterin{0%{transform:translateY(40px) scale(.92) rotate(-1.5deg);opacity:0}100%{transform:translateY(0) scale(1) rotate(0);opacity:1}}
@@ -119,7 +122,17 @@
 
   <!-- 🥚 easter egg: the legendary golden poop -->
   <sc-if value="{{ golden }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ ringStyle }}"></div>
     <div onClick="{{ onGolden }}" title="...that one looks different" style="{{ goldenStyle }}">💩</div>
+    <div style="{{ arrowStyle }}">👇</div>
+  </sc-if>
+
+  <!-- 🥚 easter egg: Dora shows up if the golden poop goes unnoticed -->
+  <sc-if value="{{ showDora }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ onDora }}" style="{{ doraStyle }}">
+      <div style="{{ doraBubbleStyle }}">{{ doraText }}</div>
+      <img src="img/dora.png" alt="dora.png" style="width:160px;display:block;filter:drop-shadow(0 10px 20px rgba(0,0,0,.32));animation:wiggle 2.6s ease-in-out infinite;">
+    </div>
   </sc-if>
 
   <!-- 🥚 easter egg: quiet re-open tab once it's been found -->
@@ -241,7 +254,7 @@ class Component extends DCLogic {
   state = { progress: 0, frozen: false, booted: false, shiftHeld: false,
             btnLeft: 0, btnTop: 0, poopCount: 0, toast: '', placed: false,
             hintLevel: 0, fails: 0, mercy: false,
-            golden: false, goldSpot: 0, letterFound: false, letterOpen: false,
+            golden: false, goldSpot: 0, letterFound: false, letterOpen: false, nudge: 0,
             commentary: false };
 
   componentDidMount() {
@@ -298,7 +311,7 @@ class Component extends DCLogic {
   };
 
   componentWillUnmount() {
-    clearInterval(this._p); clearInterval(this._poop); clearInterval(this._h);
+    clearInterval(this._p); clearInterval(this._poop); clearInterval(this._h); clearInterval(this._n);
     window.removeEventListener('mousemove', this._mm);
     window.removeEventListener('keydown', this._kd);
     window.removeEventListener('keyup', this._ku);
@@ -346,13 +359,32 @@ class Component extends DCLogic {
       const c = s.poopCount + n;
       if (!s.golden && !s.letterFound && c >= 14) {
         setTimeout(() => this.flash("✨ ok hold on. one of those did NOT look normal."), 400);
+        this.startNudges();
         return { poopCount: c, golden: true, goldSpot: Math.floor(Math.random() * 4) };
       }
       return { poopCount: c };
     });
   };
 
+  // if the golden poop sits there unclicked, Dora turns up and does her whole bit
+  startNudges = () => {
+    clearInterval(this._n);
+    const t0 = Date.now();
+    this._n = setInterval(() => {
+      if (!this.state.golden) { clearInterval(this._n); return; }
+      const t = (Date.now() - t0) / 1000;
+      const lvl = t > 50 ? 3 : t > 32 ? 2 : t > 15 ? 1 : 0;
+      if (lvl > this.state.nudge) this.setState({ nudge: lvl });
+    }, 1000);
+  };
+
+  onDora = () => {
+    if (this.state.nudge >= 3) this.onGolden();
+    else this.flash("no no. the POOP, mami. find the golden poop. 💩");
+  };
+
   onGolden = () => {
+    clearInterval(this._n);
     this.setState({ golden: false, letterFound: true, letterOpen: true });
     this.flash("🏆 legendary poop acquired");
   };
@@ -418,6 +450,42 @@ class Component extends DCLogic {
       onDog: this.onDog,
       onScout: this.onScout,
       golden: s.golden,
+      showDora: s.golden && s.nudge >= 1,
+      onDora: this.onDora,
+      doraText: [
+        '',
+        'Can you find the golden shit? Or, in Spanish: ¿Dónde está la biblioteca?',
+        'I said DO YOU SEE IT 👀… DID I STUTTER?',
+        '¡SÍ! Right there! 👇 or just click me'
+      ][s.nudge],
+      doraStyle: {
+        position: 'fixed', right: '20px', bottom: '54px', zIndex: 65,
+        display: 'flex', flexDirection: 'column', alignItems: 'flex-end',
+        cursor: 'pointer', animation: 'doraslide .55s cubic-bezier(.2,.9,.3,1.2)'
+      },
+      doraBubbleStyle: {
+        maxWidth: '250px', marginBottom: '10px', padding: '11px 15px',
+        background: '#fff', border: '3px solid #111', borderRadius: '18px',
+        fontSize: '13.5px', fontWeight: 700, lineHeight: 1.45, color: '#111',
+        boxShadow: '0 8px 20px rgba(0,0,0,.25)', textAlign: 'right'
+      },
+      ringStyle: {
+        position: 'fixed', zIndex: 69, pointerEvents: 'none',
+        display: s.nudge >= 1 ? 'block' : 'none',
+        left: ['12%', '82%', '24%', '76%'][s.goldSpot],
+        top: ['30%', '66%', '72%', '24%'][s.goldSpot],
+        width: '96px', height: '96px', marginLeft: '-26px', marginTop: '-26px',
+        borderRadius: '50%', border: '3px solid rgba(255,212,0,.85)',
+        animation: 'ringpulse 1.6s ease-out infinite'
+      },
+      arrowStyle: {
+        position: 'fixed', zIndex: 71, pointerEvents: 'none', fontSize: '36px',
+        display: s.nudge >= 3 ? 'block' : 'none',
+        left: ['12%', '82%', '24%', '76%'][s.goldSpot],
+        top: 'calc(' + ['30%', '66%', '72%', '24%'][s.goldSpot] + ' - 62px)',
+        marginLeft: '-2px', animation: 'arrowbob .9s ease-in-out infinite',
+        filter: 'drop-shadow(0 4px 8px rgba(0,0,0,.35))'
+      },
       goldenStyle: {
         position: 'fixed',
         left: ['12%', '82%', '24%', '76%'][s.goldSpot] ,
